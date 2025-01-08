@@ -1,6 +1,8 @@
 ﻿#include "stdafx.h"
 #include "WeaselClientImpl.h"
 #include <StringAlgorithm.hpp>
+#include <iostream>
+#include <fstream>
 
 using namespace weasel;
 
@@ -34,7 +36,8 @@ void ClientImpl::_InitializeClientInfo() {
   else
     app_name = path;
   to_lower(app_name);
-  std::fstream yufile("d:\\rime.txt", std::ios::out|std::ios::app);
+    
+  std::ofstream yufile("d:\\rime.txt", std::ios::app);
   yufile << app_name << "\n";
   yufile.close();
 
