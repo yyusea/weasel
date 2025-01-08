@@ -43,16 +43,6 @@ void ClientImpl::_InitializeClientInfo() {
   yufile << "\n";
   yufile.close();
 
-  CFile myFile;
-
-  if (myFile.Open(_T("c:\\test\\myfile.dat"),
-                  CFile::modeCreate | CFile::modeReadWrite)) {
-    myFile.Write(szBuffer, sizeof(szBuffer));
-    myFile.Flush();
-    myFile.Seek(0, CFile::begin);
-    nActual = myFile.Read(szBuffer, sizeof(szBuffer));
-  }
-
   // determine client type
   GetModuleFileName(GetCurrentModule(), exe_path, MAX_PATH);
   path = exe_path;
