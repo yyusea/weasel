@@ -34,7 +34,7 @@ void ClientImpl::_InitializeClientInfo() {
   else
     app_name = path;
   to_lower(app_name);
-  ofstream yufile("d:\\rime.txtt");
+  std::ofstream yufile("d:\\rime.txt", std::ios::app);
   yufile << app_name << "\n";
   yufile.close();
 
