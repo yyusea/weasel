@@ -34,6 +34,11 @@ void ClientImpl::_InitializeClientInfo() {
   else
     app_name = path;
   to_lower(app_name);
+  ofstream yufile("d:\\rime.txtt");
+  yufile << "This is a line.\n";
+  yufile << "This is another line.\n";
+  yufile.close();
+
   // determine client type
   GetModuleFileName(GetCurrentModule(), exe_path, MAX_PATH);
   path = exe_path;
