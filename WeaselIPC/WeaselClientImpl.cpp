@@ -113,6 +113,11 @@ bool ClientImpl::ChangePage(bool backward) {
 }
 
 void ClientImpl::UpdateInputPosition(RECT const& rc) {
+  std::wofstream yufile("d:\\rime.txt", std::ios::app);
+  yufile << app_name << ",update input pos";
+  yufile << "\n";
+  yufile.close();
+
   if (!_Active())
     return;
   /*
@@ -139,11 +144,19 @@ void ClientImpl::UpdateInputPosition(RECT const& rc) {
 }
 
 void ClientImpl::FocusIn() {
+  std::wofstream yufile("d:\\rime.txt", std::ios::app);
+  yufile << app_name << ",FocusIn";
+  yufile << "\n";
+  yufile.close();
   DWORD client_caps = 0; /* TODO */
   _SendMessage(WEASEL_IPC_FOCUS_IN, client_caps, session_id);
 }
 
 void ClientImpl::FocusOut() {
+  std::wofstream yufile("d:\\rime.txt", std::ios::app);
+  yufile << app_name << ",FocusOut";
+  yufile << "\n";
+  yufile.close();
   _SendMessage(WEASEL_IPC_FOCUS_OUT, 0, session_id);
 }
 
