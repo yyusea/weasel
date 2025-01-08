@@ -113,13 +113,23 @@ bool ClientImpl::ChangePage(bool backward) {
 }
 
 void ClientImpl::UpdateInputPosition(RECT const& rc) {
-  std::wofstream yufile("d:\\rime.txt", std::ios::app);
-  yufile << app_name << ",update input pos";
-  yufile << "\n";
-  yufile.close();
+  {
+    std::wofstream yufile("d:\\rime.txt", std::ios::app);
+    yufile << app_name << ",update input pos";
+    yufile << "\n";
+    yufile.close();
+  }
 
   if (!_Active())
     return;
+
+  {
+    std::wofstream yufile("d:\\rime.txt", std::ios::app);
+    yufile << app_name << ",update input pos  ";
+    yufile << "actice \n";
+    yufile.close();
+  }
+
   /*
   移位标志 = 1bit == 0
   height:0~127 = 7bit
@@ -140,6 +150,13 @@ void ClientImpl::UpdateInputPosition(RECT const& rc) {
   int height = max(0, min(127, (rc.bottom - rc.top) >> hi_res));
   DWORD compressed_rect = ((hi_res & 0x01) << 31) | ((height & 0x7f) << 24) |
                           ((top & 0xfff) << 12) | (left & 0xfff);
+
+  {
+    std::wofstream yufile("d:\\rime.txt", std::ios::app);
+    yufile << app_name << ",update input pos";
+    yufile << left << top << height << "\n";
+    yufile.close();
+  }
   _SendMessage(WEASEL_IPC_UPDATE_INPUT_POS, compressed_rect, session_id);
 }
 
