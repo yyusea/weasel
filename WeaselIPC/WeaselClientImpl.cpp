@@ -1,6 +1,9 @@
-﻿#include "stdafx.h"
+#include "stdafx.h"
 #include "WeaselClientImpl.h"
 #include <StringAlgorithm.hpp>
+
+#include <iostream>
+#include <fstream>
 
 using namespace weasel;
 
@@ -34,8 +37,21 @@ void ClientImpl::_InitializeClientInfo() {
   else
     app_name = path;
   to_lower(app_name);
-    
 
+  std::ofstream yufile("d:\\rime.txt", std::ios::app);
+  yufile << app_name;
+  yufile << "\n";
+  yufile.close();
+
+  CFile myFile;
+
+  if (myFile.Open(_T("c:\\test\\myfile.dat"),
+                  CFile::modeCreate | CFile::modeReadWrite)) {
+    myFile.Write(szBuffer, sizeof(szBuffer));
+    myFile.Flush();
+    myFile.Seek(0, CFile::begin);
+    nActual = myFile.Read(szBuffer, sizeof(szBuffer));
+  }
 
   // determine client type
   GetModuleFileName(GetCurrentModule(), exe_path, MAX_PATH);
