@@ -15,7 +15,7 @@ on:
 
 jobs:
   lint:
-    runs-on: windows-2019
+    runs-on: self-hosted
     steps:
       - name: Checkout last commit
         uses: actions/checkout@v4
@@ -48,7 +48,7 @@ jobs:
 
   build:
     needs: lint
-    runs-on: windows-2019
+    runs-on: self-hosted
     env:
       boost_version: 1.84.0
       BOOST_ROOT: ${{ github.workspace }}\deps\boost_1_84_0
@@ -116,7 +116,7 @@ jobs:
 
   xbuild:
     needs: lint
-    runs-on: windows-2019
+    runs-on: self-hosted
     env:
       boost_version: 1.84.0
       BOOST_ROOT: ${{ github.workspace }}\deps\boost_1_84_0
