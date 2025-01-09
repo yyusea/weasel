@@ -36,11 +36,11 @@ jobs:
               Write-Host "clang-format OK"
             } else {
               Write-Host "clang-format vesion does not meet"
-              choco install llvm --version=18.1.6
+              choco install llvm --version=18.1.6 --force
             }
           } else {
             Write-Host "clang-format not installed"
-            choco install llvm --version=18.1.6
+            choco install llvm --version=18.1.6 --force
           }
       - name: Code style lint
         shell: bash
