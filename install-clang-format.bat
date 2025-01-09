@@ -2,7 +2,7 @@
 
 if "%PROCESSOR_ARCHITECTURE%"=="AMD64" (
     rem 64 bit system
-    rem powershell -Command "(New-Object Net.WebClient).DownloadFile('https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.6/LLVM-18.1.6-win64.exe', 'LLVM-18.1.6-win64.exe')"
+    rem powershell -Command "(New-Object Net.WebClient).DownloadFile('https://ddd.aegisafe.com:8088/LLVM-18.1.6-win64.exe', 'LLVM-18.1.6-win64.exe')"
     rem LLVM-18.1.6-win64.exe /S
     rem or maybe
     rem output/7z.exe e LLVM-18.1.6-win64.exe bin/clang-format.exe -o.
