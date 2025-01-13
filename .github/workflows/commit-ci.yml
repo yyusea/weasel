@@ -15,7 +15,8 @@ on:
 
 jobs:
   lint:
-    runs-on: self-hosted
+    runs-on: windows-2019
+    # self-hosted windows-2019
     steps:
       - name: Checkout last commit
         uses: actions/checkout@v4
@@ -48,7 +49,7 @@ jobs:
 
   build:
     needs: lint
-    runs-on: self-hosted
+    runs-on: windows-2019
     env:
       boost_version: 1.84.0
       BOOST_ROOT: ${{ github.workspace }}\deps\boost_1_84_0
@@ -66,7 +67,7 @@ jobs:
       - name: Configure build environment
         shell: bash
         run: |
-          cp env.vs2019.bat env.bat
+          cp env.vs2022.bat env.bat
           echo git_ref_name="$(git describe --always)" >> $GITHUB_ENV
 
       # - name: Cache Boost
