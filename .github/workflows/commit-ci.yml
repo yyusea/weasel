@@ -78,7 +78,7 @@ jobs:
           key: ${{ runner.os }}-boost-${{ env.boost_version }}
 
       - name: Install Boost
-        if: steps.cache-boost.outputs.cache-hit != 'true'
+        # if: steps.cache-boost.outputs.cache-hit != 'true'
         shell: bash
         run: |
           ./install_boost.bat
