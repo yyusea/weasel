@@ -118,6 +118,11 @@ rem parse the command line options
   goto parse_cmdline_options
 :end_parsing_cmdline_options
 
+set build_config=Debug
+set boost_build_variant=debug
+set rime_build_variant=debug
+
+
 if %build_weasel% == 0 (
 if %build_boost% == 0 (
 if %build_data% == 0 (
