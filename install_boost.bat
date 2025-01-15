@@ -11,7 +11,7 @@ if exist "%BOOST_ROOT%\boost" goto boost_found
 for %%I in ("%BOOST_ROOT%\.") do set src_dir=%%~dpI
 rem download boost source
 rem aria2c https://archives.boost.io/release/%boost_version%/source/boost_%boost_x_y_z%.7z -d %src_dir%
-rem aria2c https://ddd.aegisafe.com:8088/boost_%boost_x_y_z%.7z -d %src_dir%
+aria2c https://ddd.aegisafe.com:8088/boost_%boost_x_y_z%.7z -d %src_dir%
 pushd %src_dir%
 7z x boost_%boost_x_y_z%.7z
 popd
